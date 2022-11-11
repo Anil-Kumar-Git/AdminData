@@ -1,10 +1,10 @@
 import axios from "axios"
-let token = localStorage.getItem("token");
 
 const API_URL = "http://34.199.164.237:5000";
 //post
 
 const Post=async(url,data)=>{
+let token = localStorage.getItem("token");
     try{
         const response = await axios.post(`${API_URL}/${url}`,data,{
             headers: { Authorization: token },
@@ -28,6 +28,7 @@ const Put=async(url,data)=>{
 }
 
 const Delete=async(url,data)=>{
+    let token = localStorage.getItem("token");
     try{
         const response = await axios.post(`${API_URL}/${url}`,data,{
             headers: { Authorization: token },
@@ -39,8 +40,9 @@ const Delete=async(url,data)=>{
 }
 
 const Get=async(url,data)=>{
+    let token = localStorage.getItem("token");
     try{
-        const response = await axios.post(`${API_URL}/${url}`,data,{
+        const response = await axios.get(`${API_URL}/${url}`,data,{
             headers: { Authorization: token },
           })
         return response.data
