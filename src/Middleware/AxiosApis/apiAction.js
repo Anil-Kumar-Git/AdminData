@@ -30,7 +30,7 @@ const Put=async(url,data)=>{
 const Delete=async(url,data)=>{
     let token = localStorage.getItem("token");
     try{
-        const response = await axios.post(`${API_URL}/${url}`,data,{
+        const response = await axios.delete(`${API_URL}/${url}`,data,{
             headers: { Authorization: token },
           })
         return response.data
@@ -39,10 +39,24 @@ const Delete=async(url,data)=>{
     }
 }
 
-const Get=async(url,data)=>{
+const Get=async (url,data)=>{
+    let token = localStorage.getItem("token");
+    console.log(token,"token")
+    try{
+        const response = await axios.get(`${API_URL}/${url}`,data
+        ,{
+            headers: { Authorization: token },
+          })
+        return response.data
+    }catch(err){
+       throw err.response.data
+    }
+}
+
+const Patch=async(url,data)=>{
     let token = localStorage.getItem("token");
     try{
-        const response = await axios.get(`${API_URL}/${url}`,data,{
+        const response = await axios.patch(`${API_URL}/${url}`,data,{
             headers: { Authorization: token },
           })
         return response.data
@@ -53,6 +67,7 @@ const Get=async(url,data)=>{
 
 
 export {
+    Patch,
     Post,
     Put,
     Delete,

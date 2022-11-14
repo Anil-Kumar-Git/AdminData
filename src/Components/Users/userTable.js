@@ -38,6 +38,7 @@ import { EcommerceOrderColumns } from "./userConfig";
 import { defaultSorted } from "./userConfig";
 import { getUserAllData } from "../../Middleware/AxiosApis/users/userApiResponse";
 import { statusGroup, typeGroup } from "../common/dropDownGroups";
+import UserDetailsModal from "./userDetails";
 
 const UserTable = (props) => {
   const [backupData, setBackupData] = useState([]);
@@ -48,6 +49,9 @@ const UserTable = (props) => {
     search: "",
   });
   const [loading, setLoading] = useState(false);
+  const [modal,setModal]= useState({detail:false,delete:false,edit:false})
+  const [detailsId, stDetailId] = useState("");
+  
 
   const { SearchBar } = Search;
 
@@ -109,8 +113,18 @@ const UserTable = (props) => {
     custom: true,
   };
 
+  const toggle=(val,id)=>{
+    setModal({detail:val})
+    stDetailId(id)
+  }
+
   return (
     <React.Fragment>
+      <UserDetailsModal 
+      isOpen={modal?.detail}
+      detailID={detailsId || " "}
+      setModal={setModal}
+      />
       {/* <UserModal
         isOpen={modal1}
         toggle={toggleViewModal}
@@ -223,14 +237,14 @@ const UserTable = (props) => {
                 <PaginationProvider
                   pagination={paginationFactory(pageOptions)}
                   keyField="_id"
-                  columns={EcommerceOrderColumns()}
+                  columns={EcommerceOrderColumns(toggle)}
                   data={userData || []}
                 >
                   {({ paginationProps, paginationTableProps }) => (
                     <ToolkitProvider
                       keyField="_id"
                       data={userData || []}
-                      columns={EcommerceOrderColumns()}
+                      columns={EcommerceOrderColumns(toggle)}
                       bootstrap4
                       search
                     >
