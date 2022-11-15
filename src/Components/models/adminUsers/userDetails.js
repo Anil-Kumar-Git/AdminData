@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Col, Row } from 'reactstrap';
-import { getUserById } from '../../Middleware/AxiosApis/users/userApiResponse';
+import { getUserById } from '../../../Middleware/AxiosApis/users/userApiResponse';
 
 function UserDetailsModal(args) {
   const [userDetails,setUserDetails]=useState([]);

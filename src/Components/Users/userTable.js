@@ -38,7 +38,7 @@ import { EcommerceOrderColumns } from "./userConfig";
 import { defaultSorted } from "./userConfig";
 import { getUserAllData } from "../../Middleware/AxiosApis/users/userApiResponse";
 import { statusGroup, typeGroup } from "../common/dropDownGroups";
-import UserDetailsModal from "./userDetails";
+import UserDetailsModal from "../models/adminUsers/userDetails"
 
 const UserTable = (props) => {
   const [backupData, setBackupData] = useState([]);

@@ -8,7 +8,7 @@ const statusGroup = [
     { label: "Active", value: "active" },
     { label: "Suspended", value: "suspended" },
     { label: "Archived", value: "archived" },
-    { label: "Marked for deletion", value: "mark_for_delete" },
+    { label: "Marked for deletion", value: "mark_for_deletion" },
     { label: "All", value: "" },
   ];
 const roleGroup = [
