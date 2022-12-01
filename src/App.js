@@ -27,6 +27,10 @@ function App() {
   };
 
   const isNotAuthenticated = (pageComponent) => {
+
+
+
+    
     const token = localStorage.getItem('token')
   
     if (token) {
