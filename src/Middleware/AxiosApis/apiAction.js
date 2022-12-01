@@ -1,6 +1,7 @@
 import axios from "axios"
 
-const API_URL = "http://34.199.164.237:5000";
+// const API_URL = "http://34.199.164.237:8080";
+const API_URL= "http://localhost:8080";
 //post
 
 const Post=async(url,data)=>{

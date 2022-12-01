@@ -4,7 +4,7 @@ import { Post, Put } from "./apiAction";
 const loginApi = async (value) => {
   // console.log(value,"value")
   try {
-    let responce = await Post(`users/authenticate`, value);
+    let responce = await Post(`users/login`, value);
     console.log(responce, "responce allApi");
     return responce;
   } catch (err) {

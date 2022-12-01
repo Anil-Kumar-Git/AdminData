@@ -19,33 +19,30 @@ import MyProfile from "./Pages/Profile/MyProfile";
 import VerifyEmail from './Pages/verifyEmail';
 import ForgetPwd from './Pages/forgetPwd';
 import Users from './Pages/Users';
+import RegisterUser from './Pages/RegisterUser';
 
 function App() {
-  const [login, setLogin] = useState(false);
-  const showLayout = (event) => {
-    setLogin(event);
-  };
+  // const [login, setLogin] = useState(false);
+  // const showLayout = (event) => {
+  //   setLogin(event);
+  // };
 
-  const isNotAuthenticated = (pageComponent) => {
-
-
-
-    
-    const token = localStorage.getItem('token')
+  // const isNotAuthenticated = (pageComponent) => {
+  //   const token = localStorage.getItem('token')
   
-    if (token) {
-      return <Navigate to={{ pathname: '/login' }} />
-    }
-    return pageComponent
-  }
-  const isAuthenticated = (pageComponent) => {
-    const token = localStorage.getItem('token')
+  //   if (token) {
+  //     return <Navigate to={{ pathname: '/login' }} />
+  //   }
+  //   return pageComponent
+  // }
+  // const isAuthenticated = (pageComponent) => {
+  //   const token = localStorage.getItem('token')
   
-    if (!token) {
-      return <Navigate to={{ pathname: '/' }} />
-    }
-    return pageComponent
-  }
+  //   if (!token) {
+  //     return <Navigate to={{ pathname: '/' }} />
+  //   }
+  //   return pageComponent
+  // }
 
   return (
     <div>
@@ -53,6 +50,7 @@ function App() {
         <Routes>
           <Route element={<ProtectedComponent />}>
             <Route path="/login" element={<Login />} />
+            <Route path="/registration" element={<RegisterUser />} />
             <Route path="/forget-pwd" element={<ForgetPwd />} />
             <Route path="/verify-email/:email/:verifyId" element={<VerifyEmail />} />
             {/* <Route path="/reset-password/:token" element={<ResetPwd />} /> */}

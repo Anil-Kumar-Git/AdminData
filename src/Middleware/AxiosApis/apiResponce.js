@@ -1,10 +1,11 @@
 import { forgetApi, loginApi, resetApi, verifyApi } from "./allApis";
+import { Post } from "./apiAction";
 
 
 const middleLogin = async (value) => {
   if (value.value && value.password && value.userType && value.type) {
     try {
-      let response = await loginApi(value);
+      let response = await Post(`users/login`,value);
       if (response.code=="200") {
         localStorage.setItem("token", response?.accessToken);
         localStorage.setItem("adminAuth", JSON.stringify(response?.data));

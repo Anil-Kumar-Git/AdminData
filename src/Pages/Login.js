@@ -138,6 +138,13 @@ const Login = () => {
                             forgot password
                           </Button>
                           </Link>
+                          <Link to="/registration">
+                          <Button
+                            variant="link"
+                          >
+                            registration
+                          </Button>
+                          </Link>
                           <div
                             className="do-not-remember-message"
                             id="do-not-remember-message"
