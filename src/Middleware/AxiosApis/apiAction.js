@@ -1,9 +1,9 @@
 import axios from "axios"
 
 // const API_URL = "http://34.199.164.237:8080";
-const API_URL= "http://localhost:8080";
-//post
+const API_URL=process.env.REACT_APP_API_URL
 
+//post
 const Post=async(url,data)=>{
 let token = localStorage.getItem("token");
     try{
